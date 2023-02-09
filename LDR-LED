@@ -1,0 +1,29 @@
+int ledPin=12;
+
+
+// this sketch will run once
+void setup() {
+  Serial.begin(9600); // starts communications at 9600 bits of data per second
+  pinMode(ledPin1, OUTPUT); // ledPin is set as an output
+}
+
+// this sketch will run forever
+void loop() {
+  int sensorValue = analogRead(A1); // read over A0 status
+   // float f = sensorValue * (5.0/1023);
+  // the values of sensorValue will be printed in the serial monitor
+  Serial.println(sensorValue);
+  delay(1); // delay 1/1000 of a second
+ /* if (sensorValue<252) { // if the value of sensorValue is less than 252, the following will happen
+    digitalWrite(ledPin, LOW); // the led will turn on
+  }
+  else { // if the value of sensorValue is more than 252, the following will happen
+    digitalWrite(ledPin, HIGH); // the led will trun off
+  }*/
+   if (sensorValue>410) { // if the value of sensorValue is less than 252, the following will happen
+    digitalWrite(ledPin, HIGH); // the led will turn on
+  }
+  else { // if the value of sensorValue is more than 252, the following will happen
+    digitalWrite(ledPin, LOW); // the led will trun off
+  }
+}
